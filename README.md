@@ -34,18 +34,18 @@
 $ npm install
 ```
 ## setup .env file
-Environment variable
-PORT=
-DATABASE_HOST=
-DATABASE_NAME=
-DATABASE_USERNAME=
-DATABASE_PASSWORD=
-DATABASE_PORT=;
+Environment variable <br/>
+PORT=<br/>
+DATABASE_HOST= <br/>
+DATABASE_NAME=<br/>
+DATABASE_USERNAME=<br/>
+DATABASE_PASSWORD=<br/>
+DATABASE_PORT=<br/>;
 
 #setup Database
 ```mysql
 create database twitter;
-
+```
 ## Running the app
 
 ```bash
