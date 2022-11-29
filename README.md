@@ -33,6 +33,16 @@
 ```bash
 $ npm install
 ```
+# setup .env file
+
+```Environment variable
+PORT=
+DATABASE_HOST=
+DATABASE_NAME=
+DATABASE_USERNAME=
+DATABASE_PASSWORD=
+DATABASE_PORT=
+
 #setup Database
 ```mysql
 create database twitter;
