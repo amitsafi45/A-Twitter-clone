@@ -33,6 +33,9 @@
 ```bash
 $ npm install
 ```
+#setup Database
+```mysql
+create database twitter;
 
 ## Running the app
 
