@@ -33,9 +33,8 @@
 ```bash
 $ npm install
 ```
-# setup .env file
-
-```Environment variable
+## setup .env file
+Environment variable
 PORT=
 DATABASE_HOST=
 DATABASE_NAME=
