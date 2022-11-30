@@ -1,4 +1,4 @@
-import { Controller, Delete, Get, Patch, Post, Put } from '@nestjs/common';
+import { Controller, Delete, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import {ApiTags} from '@nestjs/swagger'
 
 @ApiTags('users')
@@ -7,14 +7,14 @@ export class UsersController {
 
     //Get details of given user by username
     @Get('/@:username')
-    async getUserByUsername():Promise<string>{
+    async getUserByUsername(@Param('username') username:string):Promise<string>{
         return 'Get details of given user by username'
     }
 
     //Get details of given user by userid
 
     @Get(':userID')
-    async getUserByUserID():Promise<string>{
+    async getUserByUserID(@Param('userID') userID:string):Promise<string>{
         return 'Get details of given user by userid'
     }
 
@@ -27,22 +27,22 @@ export class UsersController {
 
     //Update bio/name/image etc of an user
 
-    @Patch(':userId')
-    async update():Promise<string>{
+    @Patch(':userID')
+    async update(@Param('userID') userID:string):Promise<string>{
         return 'Update bio/name/image etc of an user'
     }
 
     //Follow the given user
 
     @Put(':userID/follow')
-    async followUser():Promise<string>{
+    async followUser(@Param('userID') userID:string):Promise<string>{
         return 'Follow the given user'
     }
 
     //Un-follow the given user
 
     @Delete(':userID/follow')
-    async unFollowUser():Promise<string>{
+    async unFollowUser(@Param('userID') userID:string):Promise<string>{
         return 'Un-follow the given user'
     }
 }

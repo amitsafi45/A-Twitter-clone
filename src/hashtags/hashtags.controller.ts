@@ -1,4 +1,4 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 import {ApiTags} from '@nestjs/swagger'
 @ApiTags('hashtags')
 @Controller('api/hashtags')
@@ -12,7 +12,7 @@ export class HashtagsController {
 
     //All posts of this given hashtag
     @Get(':tag/posts')
-    async getPostsOfGivenTag():Promise<string>{
+    async getPostsOfGivenTag(@Param('tag') tag:string):Promise<string>{
         return 'All posts of this given hashtag'
     }
 }
