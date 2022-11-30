@@ -7,6 +7,7 @@ import {TypeOrmModule} from '@nestjs/typeorm'
 import { UsersEntity } from './entities/users.entity';
 import { PostEntity } from './entities/posts.entity';
 import { HashtagsEntity } from './entities/hashtags.entity';
+import { UsersModule } from './users/users.module';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -18,7 +19,7 @@ import { HashtagsEntity } from './entities/hashtags.entity';
     database: process.env.DATABASE_NAME,
     entities: [UsersEntity,PostEntity,HashtagsEntity],
     logging:true,
-    synchronize: true,})],
+    synchronize: true,}), UsersModule],
   controllers: [ PostsController, HashtagsController, UsersController],
   providers: [],
 })
