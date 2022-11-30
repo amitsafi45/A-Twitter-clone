@@ -1,7 +1,5 @@
 import 'dotenv/config'
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { PostsController } from './posts/posts.controller';
 import { HashtagsController } from './hashtags/hashtags.controller';
 import { UsersController } from './users/users.controller';
@@ -21,7 +19,7 @@ import { HashtagsEntity } from './entities/hashtags.entity';
     entities: [UsersEntity,PostEntity,HashtagsEntity],
     logging:true,
     synchronize: true,})],
-  controllers: [AppController, PostsController, HashtagsController, UsersController],
-  providers: [AppService],
+  controllers: [ PostsController, HashtagsController, UsersController],
+  providers: [],
 })
 export class AppModule {}

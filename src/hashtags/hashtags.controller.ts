@@ -1,5 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
-
+import {ApiTags} from '@nestjs/swagger'
+@ApiTags('hashtags')
 @Controller('api/hashtags')
 export class HashtagsController {
 

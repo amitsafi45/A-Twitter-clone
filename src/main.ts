@@ -14,7 +14,6 @@ async function bootstrap() {
   .setTitle('A-Twitter-Clone')
   .setDescription('A-Twitter-Clone Backend API Project')
   .setVersion('1.0')
-  .addTag('Backend API')
   .build();
 const document = SwaggerModule.createDocument(app, config);
 SwaggerModule.setup('api', app, document);

@@ -1,10 +1,12 @@
 import { Controller, Delete, Get, Patch, Post, Put } from '@nestjs/common';
+import {ApiTags} from '@nestjs/swagger'
 
+@ApiTags('users')
 @Controller('users')
 export class UsersController {
 
     //Get details of given user by username
-    @Get(':username')
+    @Get('/@:username')
     async getUserByUsername():Promise<string>{
         return 'Get details of given user by username'
     }
