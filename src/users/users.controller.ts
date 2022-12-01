@@ -1,6 +1,6 @@
 import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, Put } from '@nestjs/common';
 import {ApiTags} from '@nestjs/swagger'
-import { UsersDTO } from '../dto/users.dto';
+import { UpdateUsersDTO, UsersDTO } from '../dto/users.dto';
 import { UsersEntity } from '../entities/users.entity';
 import { UsersService } from './users.service';
 
@@ -40,9 +40,10 @@ export class UsersController {
 
     //Update bio/name/image etc of an user
 
-    @Patch(':userID')
-    async update(@Param('userID') userID:string):Promise<string>{
-        return 'Update bio/name/image etc of an user'
+    @Patch()
+    async updateUser(@Body() data:UpdateUsersDTO):Promise<UsersEntity>{
+        const user=await this.userService.updateUser(data)
+        return user
     }
 
     //Follow the given user

@@ -10,8 +10,24 @@ export class UsersDTO{
    
     @ApiPropertyOptional()
     avatar?: string;
-    
+
     @ApiPropertyOptional()
     bio?: string;
  
+}
+
+export class UpdateUsersDTO {
+
+    @ApiProperty()
+    id:string
+
+    @ApiPropertyOptional()
+    name: string;
+   
+    @ApiPropertyOptional()
+    avatar?: string;
+
+    @ApiPropertyOptional()
+    bio?: string;
+
 }
