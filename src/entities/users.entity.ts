@@ -4,6 +4,7 @@ import { DateInfo } from "./common/dateInfo.entity";
 @Entity('users')
 export class UsersEntity extends DateInfo{
 
+
     @Column({ length: 30, nullable: false, unique: true })
     username: string;
   
