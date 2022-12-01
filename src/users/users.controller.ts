@@ -1,5 +1,7 @@
-import { Controller, Delete, Get, NotFoundException, Param, Patch, Post, Put } from '@nestjs/common';
+import { Body, Controller, Delete, Get, NotFoundException, Param, Patch, Post, Put } from '@nestjs/common';
 import {ApiTags} from '@nestjs/swagger'
+import { UsersDTO } from '../dto/users.dto';
+import { UsersEntity } from '../entities/users.entity';
 import { UsersService } from './users.service';
 
 @ApiTags('users')
@@ -9,7 +11,7 @@ export class UsersController {
     constructor(private readonly userService:UsersService){}
     //Get details of given user by username
     @Get('/@:username')
-    async getUserByUsername(@Param('username') username:string):Promise<any>{
+    async getUserByUsername(@Param('username') username:string):Promise<UsersEntity>{
         const user =await this.userService.getUserByUsername(username)
         if(!user){
             throw new NotFoundException('User Not Found')
@@ -20,7 +22,7 @@ export class UsersController {
     //Get details of given user by userid
 
     @Get(':userID')
-    async getUserByUserID(@Param('userID') userID:string):Promise<any>{
+    async getUserByUserID(@Param('userID') userID:string):Promise<UsersEntity>{
         const user=await this.userService.getUserByUserID(userID)
         if(!user){
             throw new NotFoundException('User Not Found')
@@ -31,8 +33,9 @@ export class UsersController {
     //Create a new user
 
     @Post()
-    async create():Promise<string>{
-        return 'Create a new user'
+    async createUser(@Body()data:UsersDTO):Promise<UsersEntity>{
+        const user=await this.userService.createUser(data)
+        return user
     }
 
     //Update bio/name/image etc of an user
@@ -53,6 +56,7 @@ export class UsersController {
 
     @Delete(':userID/follow')
     async unFollowUser(@Param('userID') userID:string):Promise<string>{
+        
         return 'Un-follow the given user'
     }
 }

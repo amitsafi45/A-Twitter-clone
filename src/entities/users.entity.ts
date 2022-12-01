@@ -7,7 +7,7 @@ export class UsersEntity extends DateInfo{
 
     @Column({ length: 30, nullable: false, unique: true })
     username: string;
-  
+
     @Column({ nullable: true, length: 50 })
     name: string;
   

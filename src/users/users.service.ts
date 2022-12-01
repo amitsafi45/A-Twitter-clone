@@ -10,7 +10,6 @@ export class UsersService {
         @InjectRepository(UsersEntity) private  usersRepository:Repository<UsersEntity>){}
 
         /**
-         * @description find user
          * @param username 
          * @returns User
          */
@@ -18,9 +17,23 @@ export class UsersService {
           return await this.usersRepository.findOne({where:{username:username}})
         }
 
+        /**
+         * 
+         * @param userID 
+         * @returns 
+         */
         async getUserByUserID(userID:string):Promise<UsersEntity>{
                 return await this.usersRepository.findOne({where:{id:userID}})
           
         }
-    
+
+        /**
+         * 
+         * @param data 
+         * @returns 
+         */
+        async createUser(data:Partial<UsersEntity>):Promise<UsersEntity>{
+          return await this.usersRepository.save(data)
+        }
+           
 }
