@@ -9,18 +9,23 @@ export class UsersController {
     constructor(private readonly userService:UsersService){}
     //Get details of given user by username
     @Get('/@:username')
-    async getUserByUsername(@Param('username') username:string){
+    async getUserByUsername(@Param('username') username:string):Promise<any>{
         const user =await this.userService.getUserByUsername(username)
         if(!user){
             throw new NotFoundException('User Not Found')
         }
+        return user
     }
 
     //Get details of given user by userid
 
     @Get(':userID')
-    async getUserByUserID(@Param('userID') userID:string):Promise<string>{
-        return 'Get details of given user by userid'
+    async getUserByUserID(@Param('userID') userID:string):Promise<any>{
+        const user=await this.userService.getUserByUserID(userID)
+        if(!user){
+            throw new NotFoundException('User Not Found')
+        }
+        return user
     }
 
     //Create a new user

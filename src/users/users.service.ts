@@ -8,10 +8,19 @@ export class UsersService {
     
     constructor(
         @InjectRepository(UsersEntity) private  usersRepository:Repository<UsersEntity>){}
-     
+
+        /**
+         * @description find user
+         * @param username 
+         * @returns User
+         */
        async getUserByUsername(username:string):Promise<UsersEntity>{
           return await this.usersRepository.findOne({where:{username:username}})
         }
 
+        async getUserByUserID(userID:string):Promise<UsersEntity>{
+                return await this.usersRepository.findOne({where:{id:userID}})
+          
+        }
     
 }
